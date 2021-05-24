@@ -16,7 +16,7 @@ const dbURI = 'mongodb+srv://DeveloperOne:ilovepepper143@the-little-helper.9kzsf
 
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then((result) => app.listen(3000), console.log("Connection success!"))
-  .catch((err) => console.log(err));
+  .then((result) => app.listen(process.env.PORT || 3000), console.log("Connection success!"))
 
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(express.urlencoded({ extended: true }));
